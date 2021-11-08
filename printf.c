@@ -11,27 +11,37 @@ int _printf(const char *format, ...)
 		{"s", print_char_pointer},
 		{NULL, NULL}
 	};
-	int index1 = 0, index2 = 0;
-	char *separator = "";
+	int index1 = 0, index2 = 0, i = 0;
 	va_list args;
 
 	va_start(args, format);
 
-	while (format && format[index1])
+	if (format[i] >= 33 && format[i] <= 126)
 	{
-		while (format_of_char[index2].type)
+		if (format[i] != 37)
+			printf(format);
+		else
 		{
-			if (format[index1] == *format_of_char[index2].type)
+			if (format[i] == 37)
 			{
-				printf("%s", separator);
-				separator = ", ";
-				format_of_char[index2].f(args);
+				if (format[i] + 1 == 105)
+					printf("zizi");
 			}
-			index2++;
-		}
-		index1++;
-		index2 = 0;
 
+			while (format && format[index1])
+			{
+				while (format_of_char[index2].type)
+				{
+					if (format[index1] == *format_of_char[index2].type)
+						{
+							format_of_char[index2].f(args);
+						}
+					index2++;
+				}
+				index1++;
+				index2 = 0;
+			}
+		}
 	}
 	va_end(args);
 	printf("\n");
