@@ -1,14 +1,14 @@
-#ifndef VARIADIC_FUNCTIONS_H
-#define VARIADIC_FUNCTIONS_H
+#ifndef VARIADIC_FUNCTION_H
+#define VARIADIC_FUNCTION_H
 
-#include <stdio.h>
 #include <stdarg.h>
+#include <stddef.h>
 
 /**
- * struct searchtype - Struct searchtype
+ * struct search_type - Struct searchtype
  *
- * @typeOf: The type we search
- * @f: The function associated
+ * @type: The type we search
+ * @f: function assiciated
  */
 typedef struct search_type
 {
@@ -20,6 +20,6 @@ int _printf(const char *format, ...);
 void print_char(va_list args);
 void print_integer(va_list args);
 void print_float(va_list args);
-void print_string(va_list args);
+void print_char_pointer(va_list args);
 
 #endif
