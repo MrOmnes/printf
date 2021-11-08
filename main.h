@@ -5,6 +5,11 @@
 #include <stdarg.h>
 
 int _printf(const char *format, ...);
+void print_char(va_list listFormat);
+void print_integer(va_list listFormat);
+void print_float(va_list listFormat);
+void print_string(va_list listFormat);
+
 
 /**
  * struct searchtype - Struct searchtype
