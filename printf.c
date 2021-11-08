@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "main.h"
+#include <unistd.h>
 
 int _printf(const char *format, ...)
 {
@@ -16,16 +17,22 @@ int _printf(const char *format, ...)
 
 	va_start(args, format);
 
-	if (format[i] >= 33 && format[i] <= 126)
+for (i = 0; format[i] >= 32 && format[i] <= 126 && format[i]; i++)
 	{
 		if (format[i] != 37)
-			printf(format);
+		{
+			_putchar(format[i]);
+		}
 		else
 		{
 			if (format[i] == 37)
 			{
-				if (format[i] + 1 == 105)
-					printf("zizi");
+				if (format[i + 1] == 105)
+					format_of_char[1].f(args);
+				if (format[i + 1] == 100)
+					format_of_char[1].f(args);
+				if (format[i + 1] == 37)
+					_putchar('%');
 			}
 
 			while (format && format[index1])
@@ -97,4 +104,16 @@ void print_char_pointer(va_list args)
 		return;
 	}
 	printf("%s", str);
+}
+
+/**
+ * _putchar - writes the character c to stdout
+ * @c: The character to print
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ */
+int _putchar(char c)
+{
+	return (write(1, &c, 1));
 }
