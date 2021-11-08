@@ -4,81 +4,87 @@
 
 int _printf(const char *format, ...)
 {
-	va_list args;
-	choice whatFormat[] = {
-			{"c", print_char},
-			{"i", print_integer},
-			{"f", print_float},
-			{"s", print_string},
-			{NULL, NULL}
-			};
-	int loop1 = 0, loop2 = 0;
+	search_type_t format_of_char[] = {
+		{"c", print_char},
+		{"i", print_integer},
+		{"f", print_float},
+		{"s", print_char_pointer},
+		{NULL, NULL}
+	};
+	int index1 = 0, index2 = 0;
 	char *separator = "";
+	va_list args;
 
 	va_start(args, format);
 
-	while (format != NULL && format[loop1])
+	while (format && format[index1])
 	{
-		while (whatFormat[loop2].a != NULL)
+		while (format_of_char[index2].type)
 		{
-			if (format[loop1] == *whatFormat[loop2].a)
+			if (format[index1] == *format_of_char[index2].type)
 			{
 				printf("%s", separator);
 				separator = ", ";
-				whatFormat[loop2].f(args);
+				format_of_char[index2].f(args);
 			}
-			loop2++;
+			index2++;
 		}
-		loop1++;
-		loop2 = 0;
-	}
+		index1++;
+		index2 = 0;
 
-	printf("\n");
+	}
 	va_end(args);
+	printf("\n");
 	return (0);
 }
 
+
 /**
- * print_char - Print a character
- *
- * @args: The va_list we want to print
+ * print_char - print char
+ * @args: arg to print
  */
+
 void print_char(va_list args)
 {
 	printf("%c", va_arg(args, int));
 }
 
+
 /**
- * print_integer - Print a integer
- *
- * @args: The va_list we want to print
+ * print_integer - print integer
+ * @args: arg to print
  */
+
 void print_integer(va_list args)
 {
 	printf("%d", va_arg(args, int));
 }
 
+
 /**
- * print_float - Print a float
- *
- * @args: The va_list we want to print
+ * print_float - print float
+ * @args: arg to print
  */
+
 void print_float(va_list args)
 {
 	printf("%f", va_arg(args, double));
 }
 
+
 /**
- * print_string - Print a string
- *
- * @args: The va_list we want to print
+ * print_char_pointer - print string
+ * @args: arg to print
  */
-void print_string(va_list args)
+
+void print_char_pointer(va_list args)
 {
 	char *str = va_arg(args, char *);
 
 	if (str == NULL)
-		str = "(nil)";
-
+	{
+		printf("(nil)");
+		return;
+	}
 	printf("%s", str);
 }
