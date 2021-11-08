@@ -52,7 +52,7 @@ for (i = 0; format[i] >= 32 && format[i] <= 126 && format[i]; i++)
 	}
 	va_end(args);
 	printf("\n");
-	return (0);
+	return (_strlen(format));
 }
 
 
@@ -116,4 +116,23 @@ void print_char_pointer(va_list args)
 int _putchar(char c)
 {
 	return (write(1, &c, 1));
+}
+
+/**
+ * _strlen - Compte le nombre de caractere d'une chaine
+ *
+ * @s: variable
+ *
+ * Return: (i)
+ */
+int _strlen(const char *s)
+{
+	int i = 0;
+
+	while (*s != '\0')
+	{
+		s++;
+		i++;
+	}
+	return (i);
 }
