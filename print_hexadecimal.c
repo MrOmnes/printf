@@ -3,7 +3,7 @@
 
 void print_hexadecimal(va_list args)
 {
-   int num = va_arg(args, int);
+   unsigned int num = va_arg(args, unsigned int);
    int i = 0;
    char s[90];
    for (i = 0; num > 0; i++)
