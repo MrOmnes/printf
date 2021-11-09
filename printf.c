@@ -12,6 +12,7 @@
 void(*search_type(char format))(va_list)
 {
 	int loop = 0;
+	FILE * stdout;
 
 	search_type_t format_of_char[] = {/*get function to call*/
 	{"c", print_char},
@@ -47,7 +48,6 @@ void(*search_type(char format))(va_list)
 int _printf(const char * const format, ...)
 {
 	int i = 0;
-
 	FILE * stdout;
 
 	va_list args; /*declare une liste d'argument*/
