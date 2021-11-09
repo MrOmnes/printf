@@ -48,6 +48,8 @@ int _printf(const char * const format, ...)
 {
 	int i = 0;
 
+	FILE * stdout;
+
 	va_list args; /*declare une liste d'argument*/
 
 	va_start(args, format); /*initialise args*/
