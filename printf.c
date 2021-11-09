@@ -8,11 +8,12 @@ int _printf(const char *format, ...)
 	search_type_t format_of_char[] = {
 		{"c", print_char},
 		{"i", print_integer},
+		{"d", print_integer},
 		{"f", print_float},
 		{"s", print_char_pointer},
 		{NULL, NULL}
 	};
-	int index1 = 0, index2 = 0, i = 0;
+	int i = 0;
 	va_list args;
 
 	va_start(args, format);
@@ -28,25 +29,15 @@ for (i = 0; format[i] >= 32 && format[i] <= 126 && format[i]; i++)
 			if (format[i] == 37)
 			{
 				if (format[i + 1] == 105)
-					format_of_char[1].f(args);
+					format_of_char[1].f(args), i++;
 				if (format[i + 1] == 100)
-					format_of_char[1].f(args);
+					format_of_char[2].f(args), i++;
+				if (format[i + 1] == 99)
+					format_of_char[0].f(args), i++;
+				if (format[i + 1] == 115)
+					format_of_char[4].f(args), i++;
 				if (format[i + 1] == 37)
-					_putchar('%');
-			}
-
-			while (format && format[index1])
-			{
-				while (format_of_char[index2].type)
-				{
-					if (format[index1] == *format_of_char[index2].type)
-						{
-							format_of_char[index2].f(args);
-						}
-					index2++;
-				}
-				index1++;
-				index2 = 0;
+					_putchar('%'), i++;
 			}
 		}
 	}
@@ -63,7 +54,8 @@ for (i = 0; format[i] >= 32 && format[i] <= 126 && format[i]; i++)
 
 void print_char(va_list args)
 {
-	printf("%c", va_arg(args, int));
+	char c = va_arg(args, int);
+	_putchar(c);
 }
 
 
@@ -74,7 +66,8 @@ void print_char(va_list args)
 
 void print_integer(va_list args)
 {
-	printf("%d", va_arg(args, int));
+	int i = va_arg(args, int);
+	print_number(i);
 }
 
 
@@ -97,13 +90,13 @@ void print_float(va_list args)
 void print_char_pointer(va_list args)
 {
 	char *str = va_arg(args, char *);
+	char c = va_arg(args, int);
 
 	if (str == NULL)
 	{
-		printf("(nil)");
 		return;
 	}
-	printf("%s", str);
+	_putchar(c);
 }
 
 /**
@@ -135,4 +128,42 @@ int _strlen(const char *s)
 		i++;
 	}
 	return (i);
+}
+
+/**
+ * print_number - afficher des nombres entiers
+ *
+ * @n: variable
+ */
+void print_number(int n)
+{
+	unsigned int i = 0;
+	unsigned int number_in_n;
+	unsigned int j = 1;
+
+	if (n == 0)
+		_putchar(48);
+	else
+	{
+		if (n < 0)
+		{
+			_putchar('-'), n = n * (-1);
+		}
+		number_in_n = n;
+		while (number_in_n > 0)
+		{
+			i++;
+			number_in_n = number_in_n / 10;
+		}
+		while (i > 1)
+		{
+			j = j * 10;
+			i--;
+		}
+		while (j > 0)
+		{
+			_putchar((n / j) % 10 + 48);
+			j = j / 10;
+		}
+	}
 }

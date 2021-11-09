@@ -23,5 +23,6 @@ void print_float(va_list args);
 void print_char_pointer(va_list args);
 int _putchar(char c);
 int _strlen(const char *s);
+void print_number(int n);
 
 #endif
