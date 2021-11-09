@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_integer - print integer
+ * print_unsigned - print unsigned
  * @args: arg to print
  */
 

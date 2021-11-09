@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_number - afficher des nombres entiers
+ * print_number_unsigned - afficher des nombres entiers
  *
  * @n: variable
  */
