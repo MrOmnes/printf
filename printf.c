@@ -11,6 +11,10 @@ int _printf(const char *format, ...)
 		{"d", print_integer},
 		{"f", print_float},
 		{"s", print_char_pointer},
+		{"b", print_binary},
+		{"u", print_unsigned},
+		{"o", print_octal},
+		{"x", print_hexadecimal},
 	  {NULL, NULL}};
 	int i = 0;
 	va_list args; /*declare une liste d'argument*/
@@ -35,6 +39,14 @@ int _printf(const char *format, ...)
 					format_of_char[0].f(args), i++;
 				if (format[i + 1] == 115) /*s*/
 					format_of_char[4].f(args), i++;
+				if (format[i + 1] == 98) /*b*/
+					format_of_char[5].f(args), i++;
+				if (format[i + 1] == 117) /*u*/
+					format_of_char[6].f(args), i++;
+				if (format[i + 1] == 111) /*o*/
+					format_of_char[7].f(args), i++;
+				if (format[i + 1] == 120) /*x*/
+					format_of_char[8].f(args), i++;
 				if (format[i + 1] == 37) /*%*/
 					_putchar('%'), i++;
 			}
