@@ -52,9 +52,6 @@ int _printf(const char * const format, ...)
 
 	va_start(args, format); /*initialise args*/
 
-	if (!format[i])
-		return (0);
-
 	for (i = 0; format[i] >= 32 && format[i] <= 126 && format[i]; i++)
 	{
 
