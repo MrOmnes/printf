@@ -13,12 +13,12 @@
  * @type: The type we search
  * @f: function assiciated
  */
-typedef struct search_type /*structure de base*/
+typedef struct search_type
 {
-	char *type;  /*represente le type (1ere colonne)*/
-	void (*f)(va_list); /*pointeur sur fonction *f (deuxieme colonne)*/
-} search_type_t; /*equivalent de l'alias*/
- 
+	char *type;
+	void (*f)(va_list);
+} search_type_t;
+
 int _printf(const char *format, ...);
 void print_char(va_list args);
 void print_integer(va_list args);
