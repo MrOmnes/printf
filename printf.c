@@ -3,7 +3,13 @@
 #include "main.h"
 #include <unistd.h>
 
-void (*search_type (char format))(va_list)
+
+/**
+ * search_type - Search type of format
+ * @format: Arguments
+ * Return: VOID
+ */
+void(*search_type(char format))(va_list)
 {
 	int loop = 0;
 
@@ -23,7 +29,7 @@ void (*search_type (char format))(va_list)
 	{
 		if (format_of_char[loop].type[0] == format)
 		{
-			return(format_of_char[loop].f);
+			return (format_of_char[loop].f);
 		}
 		loop++;
 	}
@@ -32,11 +38,18 @@ void (*search_type (char format))(va_list)
 	return (NULL);
 }
 
+
+/**
+ * _printf - Print what we want to print
+ * @format: Arguments
+ * Return: Length of Arguments
+ */
 int _printf(const char * const format, ...)
 {
 	int i = 0;
 
 	va_list args; /*declare une liste d'argument*/
+
 	va_start(args, format); /*initialise args*/
 
 	for (i = 0; format[i] >= 32 && format[i] <= 126 && format[i]; i++)
@@ -47,7 +60,7 @@ int _printf(const char * const format, ...)
 			if (format[i + 1] == 37) /*%*/
 				_putchar('%'), i++;
 			else
-				search_type(format[i + 1])(args), i+=2;
+				search_type(format[i + 1])(args), i += 2;
 		}
 		if (format[i] != 37)
 			_putchar(format[i]);
