@@ -15,6 +15,10 @@ int main(void)
 	unsigned int ui;
 	void *addr;
 
+	len = _printf("Percent:[%%]\n");
+	len2 = printf("Percent:[%%]\n");
+	_printf("Len:[%d]\n", len); /* Notre Printf = 13 ? */
+	printf("Len:[%d]\n", len2); /* Vraie printf = 12 */
 	_printf("%%");
 	len = _printf("Let's try to printf a simple sentence.\n");
 	len2 = printf("Let's try to printf a simple sentence.\n");
@@ -37,10 +41,6 @@ int main(void)
 	printf("String:[%s]\n", "I am a string !");
 	_printf("Address:[%p]\n", addr); /* Todo : Adress */
 	printf("Address:[%p]\n", addr);
-	len = _printf("Percent:[%%]\n");
-	len2 = printf("Percent:[%%]\n");
-	_printf("Len:[%d]\n", len); /* Notre Printf = 13 ? */
-	printf("Len:[%d]\n", len2); /* Vraie printf = 12 */
 	_printf("Unknown:[%r]\n");
 	printf("Unknown:[%r]\n");
 	return (0);

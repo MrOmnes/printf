@@ -47,6 +47,7 @@ void(*search_type(char format))(va_list)
 int _printf(const char * const format, ...)
 {
 	int i = 0;
+	int length = _strlen(format);
 
 	va_list args; /*declare une liste d'argument*/
 
@@ -58,7 +59,7 @@ int _printf(const char * const format, ...)
 		if (format[i] == 37)
 		{
 			if (format[i + 1] == 37) /*%*/
-				_putchar('%'), i++;
+				_putchar('%'), i++, length--;
 			else
 				search_type(format[i + 1])(args), i += 2;
 		}
@@ -67,5 +68,5 @@ int _printf(const char * const format, ...)
 	}
 	va_end(args);
 	_putchar('\n');
-	return (_strlen(format)); /*return la taille de format*/
+	return (length); /*return la taille de format*/
 }
