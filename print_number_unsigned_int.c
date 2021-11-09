@@ -5,7 +5,7 @@
  *
  * @n: variable
  */
-void print_number_unsigned(int n)
+void print_number_unsigned_int(int n)
 {
 	unsigned int i = 0;
 	unsigned int number_in_n;
