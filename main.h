@@ -3,6 +3,9 @@
 
 #include <stdarg.h>
 #include <stddef.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
 
 /**
  * struct search_type - Struct searchtype
@@ -10,11 +13,11 @@
  * @type: The type we search
  * @f: function assiciated
  */
-typedef struct search_type
+typedef struct search_type /*structure de base*/
 {
-	char *type;
-	void (*f)(va_list);
-} search_type_t;
+	char *type;  /*represente le type (1ere colonne)*/
+	void (*f)(va_list); /*pointeur sur fonction *f (deuxieme colonne)*/
+} search_type_t; /*equivalent de l'alias*/
  
 int _printf(const char *format, ...);
 void print_char(va_list args);
