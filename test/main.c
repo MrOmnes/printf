@@ -15,13 +15,19 @@ int main(void)
 	unsigned int ui;
 	void *addr;
 
+	len = _printf("Let's try to printf a simple sentence.\n");
+	len2 = printf("Let's try to printf a simple sentence.\n");
+	_printf("Length:[%d, %i]\n", len, len);
+	printf("Length:[%d, %i]\n", len2, len2);
+	_printf("Length:[%d, %d]\n", INT_MIN, INT_MAX);
+	printf("Length:[%d, %d]\n", INT_MIN, INT_MAX);
+	_printf("Negative:[%d]\n", -762534);
+	printf("Negative:[%d]\n", -762534);
 	len = _printf("Percent:[%%]\n");
 	len2 = printf("Percent:[%%]\n");
 	_printf("Len:[%d]\n", len); /* Notre Printf = 13 ? */
 	printf("Len:[%d]\n", len2); /* Vraie printf = 12 */
 	_printf("%%");
-	len = _printf("Let's try to printf a simple sentence.\n");
-	len2 = printf("Let's try to printf a simple sentence.\n");
 	_printf("Binaire : [%b]", 99);
 	ui = (unsigned int)INT_MAX + 1024;
 	addr = (void *)0x7ffe637541f0;
