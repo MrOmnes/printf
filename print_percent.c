@@ -5,7 +5,7 @@
  * @args: Arguments
  * Return: a percent
  */
-int print_percent (va_list args __attribute__((unused)))
+int print_percent(va_list args __attribute__((unused)))
 {
 	return (_putchar('%'));
 }
