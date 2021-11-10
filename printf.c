@@ -60,7 +60,7 @@ int _printf(const char * const format, ...)
 		{
 
 			if (format[i + 1] == 37) /*%*/
-				_putchar('%'), i++, length--;
+				i++, length--;
 
 			pointed_function = search_type(format[i + 1]);
 
