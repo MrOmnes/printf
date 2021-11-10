@@ -9,7 +9,7 @@
  * @format: Arguments
  * Return: VOID
  */
-int(*search_type(char format))(va_list)
+int (*search_type(char format))(va_list)
 {
 	int loop = 0;
 
@@ -51,6 +51,9 @@ int _printf(const char * const format, ...)
 
 	va_list args; /*declare une liste d'argument*/
 
+	if (format == NULL || (format[i] == '%' && format[i + 1] == '\0'))
+		return (-1);
+
 	va_start(args, format); /*initialise args*/
 
 	for (i = 0; format[i]; i++)
@@ -63,19 +66,6 @@ int _printf(const char * const format, ...)
 				i++, length--;
 
 			pointed_function = search_type(format[i + 1]);
-
-			if (args == NULL)
-			{
-				int inull = _strlen("(null)");
-				char chart[] = "(null)";
-
-				printf("zizi");
-				while (inull != 0)
-				{
-					_putchar(chart[inull]);
-					inull--;
-				}
-			}
 
 			if (pointed_function != NULL)
 				length += pointed_function(args);
