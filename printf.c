@@ -23,6 +23,7 @@ int (*search_type(char format))(va_list)
 	{"u", print_unsigned},
 	{"o", print_octal},
 	{"x", print_hexadecimal},
+	{"%", print_percent},
 	{NULL, NULL}};
 
 	while (format_of_char[loop].type != NULL)
@@ -47,7 +48,7 @@ int _printf(const char * const format, ...)
 {
 	int i = 0;
 	int (*pointed_function)(va_list);
-	int length = _strlen(format);
+	int length = 0;
 
 	va_list args; /*declare une liste d'argument*/
 
@@ -59,22 +60,20 @@ int _printf(const char * const format, ...)
 	for (i = 0; format[i]; i++)
 	{
 
-		if (format[i] == 37)
+		if (format[i] == '%')
 		{
 
-			if (format[i + 1] == 37) /*%*/
-				i++, length--;
-
-			pointed_function = search_type(format[i + 1]);
+			if (format[i + 1] != '\0')
+				pointed_function = search_type(format[i + 1]);
 
 			if (pointed_function != NULL)
 				length += pointed_function(args);
 			else
-				_putchar('%'), _putchar(format[i + 1]);
+				length += _putchar(format[i + 1]);
 		i += 2;
 		}
 		if (format[i] != 37)
-			_putchar(format[i]);
+			length += _putchar(format[i]);
 	}
 	va_end(args);
 	return (length); /*return la taille de format*/
