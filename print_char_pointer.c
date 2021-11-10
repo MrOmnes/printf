@@ -8,7 +8,6 @@
 int print_char_pointer(va_list args) /*Fonction qui affiche*/
 {                                     /* l'argument de type char poiteur*/
 	char *str = va_arg(args, char *);
-	int i;
 	int charn = 0;
 
 	if (str == NULL)
@@ -16,11 +15,8 @@ int print_char_pointer(va_list args) /*Fonction qui affiche*/
 		str = "(null)";
 	}
 
-	i = _strlen(str);
-
-	while (i != 0)
+	while (str[charn])
 	{
-		i--;
 		_putchar(str[charn]);
 		charn++;
 	}

@@ -72,7 +72,7 @@ int _printf(const char * const format, ...)
 				length += _putchar(format[i + 1]);
 		i += 2;
 		}
-		if (format[i] != 37)
+		else
 			length += _putchar(format[i]);
 	}
 	va_end(args);
