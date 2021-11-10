@@ -4,10 +4,11 @@
  * print_hexadecimal - print in hexadeciamal
  * @args: arg to print
  */
-void print_hexadecimal(va_list args)
+int print_hexadecimal(va_list args)
 {
 	unsigned int num = va_arg(args, unsigned int);
 	int i = 0;
+	int length = 0;
 	char s[90];
 
 	for (i = 0; num > 0; i++)
@@ -20,5 +21,7 @@ void print_hexadecimal(va_list args)
 		num = num / 16;
 	}
 	for (i = i - 1; i >= 0; i--)
-		_putchar(s[i]);
+		_putchar(s[i]), length++;
+
+	return (length);
 }

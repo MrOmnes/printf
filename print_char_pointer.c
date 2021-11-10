@@ -4,7 +4,7 @@
  * print_char_pointer - print string
  * @args: arg to print
  */
-void print_char_pointer(va_list args) /*Fonction qui affiche*/
+int print_char_pointer(va_list args) /*Fonction qui affiche*/
 {                                     /* l'argument de type char poiteur*/
 	char *str = va_arg(args, char *);
 	int i = _strlen(str);
@@ -12,7 +12,7 @@ void print_char_pointer(va_list args) /*Fonction qui affiche*/
 
 	if (str == NULL)
 	{
-		return;
+		return (0);
 	}
 
 	while (i != 0)
@@ -21,4 +21,6 @@ void print_char_pointer(va_list args) /*Fonction qui affiche*/
 		_putchar(str[charn]);
 		charn++;
 	}
+
+	return (charn);
 }

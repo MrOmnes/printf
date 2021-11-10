@@ -9,7 +9,7 @@
  * @format: Arguments
  * Return: VOID
  */
-void(*search_type(char format))(va_list)
+int(*search_type(char format))(va_list)
 {
 	int loop = 0;
 

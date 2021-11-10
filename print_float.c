@@ -5,7 +5,9 @@
  * @args: arg to print
  */
 
-void print_float(va_list args) /*Fonction qui affiche*/
+int print_float(va_list args) /*Fonction qui affiche*/
 {                              /* l'argument de type float*/
 	printf("%f", va_arg(args, double));
+
+	return (0);
 }

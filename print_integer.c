@@ -5,10 +5,12 @@
  * @args: arg to print
  */
 
-void print_integer(va_list args) /*Fonction qui affiche*/
+int print_integer(va_list args) /*Fonction qui affiche*/
 {                                /* l'argument de type int*/
 	int i = va_arg(args, int);
 
 	print_number(i);
+
+	return (0);
 
 }

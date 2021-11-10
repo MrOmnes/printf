@@ -5,11 +5,12 @@
  * @args: argument
  */
 
-void print_octal(va_list args)
+int print_octal(va_list args)
 {
 	unsigned int num = va_arg(args, unsigned int);
 	int i = 0;
 	char s[90];
+	int length = 0;
 
 	for (i = 0; num > 0; i++)
 	{
@@ -17,5 +18,7 @@ void print_octal(va_list args)
 		num = num / 8;
 	}
 	for (i = i - 1; i >= 0; i--)
-		_putchar(s[i] + 48);
+		_putchar(s[i] + 48), length++;
+
+	return (length);
 }

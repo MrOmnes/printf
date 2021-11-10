@@ -5,11 +5,12 @@
  *
  * @n: variable
  */
-void print_number(int n)
+int print_number(int n)
 {
 	unsigned int i = 0;
 	unsigned int number_in_n;
 	unsigned int j = 1;
+	int length = 0;
 
 	if (n == 0)
 		_putchar(48);
@@ -33,7 +34,10 @@ void print_number(int n)
 		while (j > 0)
 		{
 			_putchar((n / j) % 10 + 48);
+			length++;
 			j = j / 10;
 		}
 	}
+
+	return (length);
 }

@@ -4,10 +4,11 @@
  * print_binary - fonction qui affiche en binaire
  * @args: argument
  */
-void print_binary(va_list args)
+int print_binary(va_list args)
 {
 	int num = va_arg(args, int);
 	int i = 0;
+	int length = 0;
 	char s[90];
 
 	for (i = 0; num > 0; i++)
@@ -16,5 +17,7 @@ void print_binary(va_list args)
 		num = num / 2;
 	}
 	for (i = i - 1; i >= 0; i--)
-		_putchar(s[i] + 48);
+		_putchar(s[i] + 48), length++;
+
+	return(length);
 }
