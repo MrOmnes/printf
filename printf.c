@@ -64,6 +64,19 @@ int _printf(const char * const format, ...)
 
 			pointed_function = search_type(format[i + 1]);
 
+			if (args == NULL)
+			{
+				int inull = _strlen("(null)");
+				char chart[] = "(null)";
+
+				printf("zizi");
+				while (inull != 0)
+				{
+					_putchar(chart[inull]);
+					inull--;
+				}
+			}
+
 			if (pointed_function != NULL)
 				length += pointed_function(args);
 			else
