@@ -19,6 +19,7 @@ typedef struct search_type
 	int (*f)(va_list);
 } search_type_t;
 
+int (*search_type(const char *format))(va_list);
 int _printf(const char *format, ...);
 int print_char(va_list args);
 int print_integer(va_list args);

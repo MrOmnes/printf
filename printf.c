@@ -9,7 +9,7 @@
  * @format: Arguments
  * Return: VOID
  */
-int (*search_type(char format))(va_list)
+int (*search_type(const char *format))(va_list)
 {
 	int loop = 0;
 
@@ -28,7 +28,7 @@ int (*search_type(char format))(va_list)
 
 	while (format_of_char[loop].type != NULL)
 	{
-		if (format_of_char[loop].type[0] == format)
+		if (format_of_char[loop].type[0] == format[0])
 		{
 			return (format_of_char[loop].f);
 		}
@@ -44,7 +44,7 @@ int (*search_type(char format))(va_list)
  * @format: Arguments
  * Return: Length of Arguments
  */
-int _printf(const char * const format, ...)
+int _printf(const char *format, ...)
 {
 	int i = 0;
 	int (*pointed_function)(va_list);
@@ -64,15 +64,16 @@ int _printf(const char * const format, ...)
 		{
 
 			if (format[i + 1] != '\0')
-				pointed_function = search_type(format[i + 1]);
+				pointed_function = search_type((format + i + 1));
 
 			if (pointed_function != NULL)
+			{
 				length += pointed_function(args);
+				i++;
+			}
 			else
-				length += _putchar(format[i + 1]);
-		i += 2;
-		}
-		else
+				length += _putchar(format[i]);
+		} else
 			length += _putchar(format[i]);
 	}
 	va_end(args);
