@@ -8,33 +8,28 @@
  */
 int print_number(int n)
 {
-	unsigned int i = 0;
 	unsigned int number_in_n;
 	unsigned int j = 1;
 	int length = 0;
 
 	if (n == 0)
-		_putchar(48);
+		return (_putchar('0'));
 	else
 	{
 		if (n < 0)
 		{
-			_putchar('-'), n = n * (-1);
+			length += _putchar('-'), number_in_n = n * (-1);
 		}
-		number_in_n = n;
-		while (number_in_n > 0)
-		{
-			i++;
-			number_in_n = number_in_n / 10;
-		}
-		while (i > 1)
+		else
+			number_in_n = n;
+
+		while (number_in_n / j > 9)
 		{
 			j = j * 10;
-			i--;
 		}
 		while (j > 0)
 		{
-			_putchar((n / j) % 10 + 48);
+			_putchar((number_in_n / j) % 10 + '0');
 			length++;
 			j = j / 10;
 		}
