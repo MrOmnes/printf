@@ -12,7 +12,6 @@ int print_reverse(va_list args)
 
 	if (str == NULL)
 	{
-		str = "(null)";
 		return (-1);
 	}
 
