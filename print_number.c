@@ -4,6 +4,7 @@
  * print_number - afficher des nombres entiers
  *
  * @n: variable
+ * Return: Length
  */
 int print_number(int n)
 {

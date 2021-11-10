@@ -3,6 +3,7 @@
 /**
  * print_char - print char
  * @args: argument
+ * Return: Length
  */
 
 int print_char(va_list args) /*Fonction qui affiche l'argument de type char*/

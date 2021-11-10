@@ -3,6 +3,7 @@
 /**
  * print_integer - print integer
  * @args: arg to print
+ * Return: 0
  */
 
 int print_integer(va_list args) /*Fonction qui affiche*/

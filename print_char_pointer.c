@@ -3,6 +3,7 @@
 /**
  * print_char_pointer - print string
  * @args: arg to print
+ * Return: Length
  */
 int print_char_pointer(va_list args) /*Fonction qui affiche*/
 {                                     /* l'argument de type char poiteur*/

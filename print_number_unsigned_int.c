@@ -1,9 +1,10 @@
 #include "main.h"
 
 /**
- * print_number_unsigned - afficher des nombres entiers
+ * print_number_unsigned_int - afficher des nombres entiers
  *
  * @n: variable
+ * Return: Length
  */
 int print_number_unsigned_int(int n)
 {

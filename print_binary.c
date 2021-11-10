@@ -3,6 +3,7 @@
 /**
  * print_binary - fonction qui affiche en binaire
  * @args: argument
+ * Return: Length
  */
 int print_binary(va_list args)
 {
@@ -19,5 +20,5 @@ int print_binary(va_list args)
 	for (i = i - 1; i >= 0; i--)
 		_putchar(s[i] + 48), length++;
 
-	return(length);
+	return (length);
 }
