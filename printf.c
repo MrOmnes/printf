@@ -33,8 +33,7 @@ int(*search_type(char format))(va_list)
 		}
 		loop++;
 	}
-	_putchar('%');
-	_putchar(format);
+
 	return (NULL);
 }
 
@@ -47,6 +46,7 @@ int(*search_type(char format))(va_list)
 int _printf(const char * const format, ...)
 {
 	int i = 0;
+	int (*pointed_function)(va_list);
 	int length = _strlen(format);
 
 	va_list args; /*declare une liste d'argument*/
@@ -58,10 +58,17 @@ int _printf(const char * const format, ...)
 
 		if (format[i] == 37)
 		{
+
 			if (format[i + 1] == 37) /*%*/
 				_putchar('%'), i++, length--;
+
+			pointed_function = search_type(format[i + 1]);
+
+			if (pointed_function != NULL)
+				length += pointed_function(args);
 			else
-				search_type(format[i + 1])(args), i += 2;
+				_putchar('%'), _putchar(format[i + 1]);
+		i += 2;
 		}
 		if (format[i] != 37)
 			_putchar(format[i]);
