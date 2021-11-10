@@ -33,5 +33,5 @@ int print_reverse(va_list args)
 		}
 	}
 
-	return (c);
+	return (_strlen(str));
 }
