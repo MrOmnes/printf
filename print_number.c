@@ -14,7 +14,7 @@ int print_number(int n)
 
 	if (n == 0)
 		return (_putchar('0'));
-	else
+	if (n != 0)
 	{
 		if (n < 0)
 		{
