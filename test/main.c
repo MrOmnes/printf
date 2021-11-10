@@ -15,6 +15,10 @@ int main(void)
 	unsigned int ui;
 	void *addr;
 
+	printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0);
+	_printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0);
+	_printf("vtbh;v!jkj!:*;,^$rg'thçé_oi&éz\n");
+    printf("vtbh;v!jkj!:*;,^$rg'thçé_oi&éz\n");
 	len = _printf("Let's try to printf a simple sentence.\n");
 	len2 = printf("Let's try to printf a simple sentence.\n");
 	_printf("Length:[%d, %i]\n", len, len);

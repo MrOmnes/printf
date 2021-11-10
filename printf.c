@@ -53,7 +53,7 @@ int _printf(const char * const format, ...)
 
 	va_start(args, format); /*initialise args*/
 
-	for (i = 0; format[i] >= 32 && format[i] <= 126 && format[i]; i++)
+	for (i = 0; format[i]; i++)
 	{
 
 		if (format[i] == 37)
@@ -67,6 +67,5 @@ int _printf(const char * const format, ...)
 			_putchar(format[i]);
 	}
 	va_end(args);
-	_putchar('\n');
 	return (length); /*return la taille de format*/
 }

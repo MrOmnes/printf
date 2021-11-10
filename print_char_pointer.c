@@ -8,13 +8,15 @@
 int print_char_pointer(va_list args) /*Fonction qui affiche*/
 {                                     /* l'argument de type char poiteur*/
 	char *str = va_arg(args, char *);
-	int i = _strlen(str);
+	int i;
 	int charn = 0;
 
 	if (str == NULL)
 	{
-		return (0);
+		str = "(null)";
 	}
+
+	i = _strlen(str);
 
 	while (i != 0)
 	{
