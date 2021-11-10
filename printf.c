@@ -51,7 +51,6 @@ int _printf(const char * const format, ...)
 
 	va_list args; /*declare une liste d'argument*/
 
-    va_list args; /*declare une liste d'argument*/
     va_start(args, format); /*initialise args*/
 
 	for (i = 0; format[i] >= 32 && format[i] <= 126 && format[i]; i++)
