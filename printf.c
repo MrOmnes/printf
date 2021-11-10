@@ -1,58 +1,84 @@
+#include "stdafx.h"
+
+int main()
+{
+   int num = 11, i = 10;
+   char s[10];
+   while (num != 0)
+   {
+      if (num % 2 == 0)
+      {
+         num = num / 2;
+         s[i - 1] = 0;
+         i = i - 1;
+      }
+      if (num % 2 == 1)
+      {
+         num = (num - 1) / 2;
+         s[i - 1] = 1;
+         i = i - 1;
+      }
+      return s[10];
+   }
+   printf("\n %s", s[10]);
+   getchar();
+   return 0;
+}
+Omnes — Today at 3:49 PM
 #include <stdlib.h>
 #include <stdio.h>
 #include "main.h"
 #include <unistd.h>
 
-int _printf(const char *format, ...)
+void (*search_type (char format))(va_list)
 {
-	search_type_t format_of_char[] = {/*structure qui choisit la fonction à appeler*/
-		{"c", print_char},
-		{"i", print_integer},
-		{"d", print_integer},
-		{"f", print_float},
-		{"s", print_char_pointer},
-		{"b", print_binary},
-		{"u", print_unsigned},
-		{"o", print_octal},
-		{"x", print_hexadecimal},
-	  {NULL, NULL}};
-	int i = 0;
-	va_list args; /*declare une liste d'argument*/
+    int loop = 0;
 
-	va_start(args, format); /*initialise args*/
+    search_type_t format_of_char[] = {/*get function to call*/
+    {"c", print_char},
+    {"i", print_integer},
+    {"d", print_integer},
+    {"f", print_float},
+    {"s", print_char_pointer},
+    {"b", print_binary},
+    {"u", print_unsigned},
+    {"o", print_octal},
+    {"x", print_hexadecimal},
+    {NULL, NULL}};
 
-	for (i = 0; format[i] >= 32 && format[i] <= 126 && format[i]; i++) /*Est ce que format[i] est affichable*/
-	{
-		if (format[i] != 37) /*si format[i] different %*/
-		{
-			_putchar(format[i]);
-		}
-		else
-		{
-			if (format[i] == 37)		  /*si format[i] = %*/
-			{							  /*Quel est le type? integrer, char, string..*/
-				if (format[i + 1] == 105) /*i*/
-					format_of_char[1].f(args), i++;
-				if (format[i + 1] == 100) /*d*/
-					format_of_char[2].f(args), i++;
-				if (format[i + 1] == 99) /*c*/
-					format_of_char[0].f(args), i++;
-				if (format[i + 1] == 115) /*s*/
-					format_of_char[4].f(args), i++;
-				if (format[i + 1] == 98) /*b*/
-					format_of_char[5].f(args), i++;
-				if (format[i + 1] == 117) /*u*/
-					format_of_char[6].f(args), i++;
-				if (format[i + 1] == 111) /*o*/
-					format_of_char[7].f(args), i++;
-				if (format[i + 1] == 120) /*x*/
-					format_of_char[8].f(args), i++;
-				if (format[i + 1] == 37) /*%*/
-					_putchar('%'), i++;
-			}
-		}
-	}
-	va_end(args);
-	printf("\n");
-	return (_strlen(format)); /*return la taille de format*/
+    while (format_of_char[loop].type != NULL)
+    {
+        if (format_of_char[loop].type[0] == format)
+        {
+            return(format_of_char[loop].f);
+        }
+        loop++;
+    }
+    _putchar('%');
+    _putchar(format);
+    return (NULL);
+}
+
+int _printf(const char * const format, ...)
+{
+    int i = 0;
+
+    va_list args; /*declare une liste d'argument*/
+    va_start(args, format); /*initialise args*/
+
+    for (i = 0; format[i] >= 32 && format[i] <= 126 && format[i]; i++)
+    {
+        if (format[i] == 37)
+        {
+            i++;
+            search_type(format[i])(args);
+        }
+        if (format[i + 1] == 37) /*%*/
+            _putchar('%'), i++;
+        if (format[i] != 37)
+            _putchar(format[i]), i++;
+    }
+    va_end(args);
+    _putchar('\n');
+    return (_strlen(format)); /*return la taille de format*/
 }
