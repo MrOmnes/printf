@@ -12,6 +12,11 @@ int print_binary(va_list args)
 	int length = 0;
 	char s[90];
 
+	if (num == 0)
+	{
+		length = -1;
+	}
+
 	for (i = 0; num > 0; i++)
 	{
 		s[i] = num % 2;
