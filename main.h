@@ -34,5 +34,6 @@ int print_unsigned(va_list args);
 int print_octal(va_list args);
 int print_hexadecimal(va_list args);
 int print_percent(va_list args);
+int print_reverse(va_list args);
 
 #endif
