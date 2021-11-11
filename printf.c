@@ -23,6 +23,7 @@ int (*search_type(const char *format))(va_list)
 	{"u", print_unsigned},
 	{"o", print_octal},
 	{"x", print_hexadecimal},
+	{"X", print_hexa_up},
 	{"r", print_reverse},
 	{"%", print_percent},
 	{NULL, NULL}};

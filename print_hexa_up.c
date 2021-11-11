@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * print_hexadecimal - print in hexadeciamal
+ * print_hexa_up - print in hexadeciamal
  * @args: arg to print
  * Return: Length
  */
-int print_hexadecimal(va_list args)
+int print_hexa_up(va_list args)
 {
 	unsigned int num = va_arg(args, unsigned int);
 	int i = 0;
@@ -24,7 +24,7 @@ int print_hexadecimal(va_list args)
 		if (s[i] < 10)
 			s[i] = 48 + (num % 16);
 		else
-			s[i] = 87 + (num % 16);
+			s[i] = 65 + (num % 16);
 		num = num / 16;
 	}
 	for (i = i - 1; i >= 0; i--)
