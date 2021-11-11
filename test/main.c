@@ -14,6 +14,7 @@ int main(void)
     unsigned int ui;
     /*void *addr;*/
 
+    _printf("%S\n", "Best\nSchool");
     len = _printf("%r", "bonjour");
     _printf("len : %d", len);
     len = _printf("Let's try to printf a simple sentence.\n");

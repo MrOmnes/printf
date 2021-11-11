@@ -12,6 +12,12 @@ int print_hexadecimal(va_list args)
 	int length = 0;
 	char s[90];
 
+	if (num == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
+
 	for (i = 0; num > 0; i++)
 	{
 		s[i] = num % 16;
