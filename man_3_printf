@@ -21,7 +21,7 @@ the ending ``0'' used to terminate the output of the strings) or a negative valu
 
 .SS		Conversion specifiers
 .TP
-	c	onvert int to unsigned char, and writes the result.
+	c	Convert int to unsigned char, and writes the result.
 .TP
 	s 	The pointer char * is browse in a loop into the end by NULL character and it's print with the putchar function.
 .TP
@@ -31,21 +31,19 @@ the ending ``0'' used to terminate the output of the strings) or a negative valu
 .TP
 	b   Convert and print numbers in Binary
 .TP
-    u   Print unsigned int 
+	u   Print unsigned int 
 .TP
-    o   Convert and print numbers in Base 8 
+	o   Convert and print numbers in Base 8 
 .TP
-    x   Convert and print numbers in Base 16 in Lowercase
+	x   Convert and print numbers in Base 16 in Lowercase
 .TP
-    X   Convert and print numbers in Base 16 in Uppercase
+	X   Convert and print numbers in Base 16 in Uppercase
 .TP
-    S   Print ASCII string
+	S   Print ASCII string
 .TP
-    p   Print pointers 
+	r   Prints the reverse string
 .TP
-    l   Print long int 
-.TP
-    r   Prints the reverse string
+	R   Prints the rot13'ed string
 
 .SH SEE ALSO
 printf(3)
@@ -53,13 +51,18 @@ printf(3)
 .SH EXAMPLES
 
 _printf("What does a developer do if he wants to get married?");
-
 _printf("Une fille en C");
 
-
 _printf("What color are your eyes ?);
-
 _printf("#1292f4 and you?");
+
+_printf("What is the answer of life ?");
+_printf("%d", 42);
+
+_printf("How old are you ?");
+_printf("I have %b", 24);
+
+_printf("%r", "Hello, i'm Yoda");
 
 .SH AUTHOR
 Secatricia & MrOmnes
