@@ -14,7 +14,11 @@ int print_number_unsigned_int(int n)
 	int length = 0;
 
 	if (n == 0)
+	{
 		_putchar(48);
+		return (1);
+	}
+
 	else
 	{
 		number_in_n = n;
