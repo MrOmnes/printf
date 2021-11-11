@@ -14,7 +14,7 @@ int print_binary(va_list args)
 
 	if (num == 0)
 	{
-		length = -1;
+		_putchar('0'), length++;
 	}
 
 	for (i = 0; num > 0; i++)
