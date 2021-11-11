@@ -18,28 +18,8 @@ man or help:
 	<li><a href="/rltoken/KNHC7kjcnZZCKDCHdXis4w" title="Secrets of printf" target="_blank">Secrat of printf</a> </li>
 </ol>
 
-## INTRODUCTION TO FILES :closed_book::closed_book::closed_book::
-
-0.	[**print_binary.c**:](#print_binaryc) Task 0.
-1.	[**print_char_pointer.c**:](#print-char_pointerc) Function that print string.
-2.	[**print_char.c**:](#print_charc) Function that print char.
-3.	[**print_float.c**:](#print_floatc) Function that print float.
-3.	[**print_hexadecimal.c**:](#print_hexadecimalc) Function that print in hexadeciamal.
-3.	[**print_integer.c**:](#print_integerc) Function that print integer.
-3.	[**print_number_unsigned_int.c**:](#print_number_unsigned_intc) Function that print number unsigned int.
-3.	[**print_number.c**:](#print_numberc) Function that prints display whole numbers.
-3.	[**print_octal.c**:](#print_octalc) Function that displays in base 8.
-3.	[**print_percent.c**:](#print_percentc) Function that print a percent.
-3.	[**print_reverse.c**:](#print_reversec) Function that print a text in reverse.
-3.	[**print_unsigned.c**:](#print_unsignedc) Function that print unsigned.
-3.	[**printf.c**:](#printfc) Function that print what we want to print.
-
-## FILES :bookmark_tabs::bookmark_tabs::bookmark_tabs::
-
-
 ## Mandatory 
 
-**<p>Task 0</p>**
 ### 0. I'm not going anywhere. You can print that wherever you want  to. I'm here and I'm a Spur for life
 ## Write a function that produces output according to a format.
 <pre><code>
@@ -153,4 +133,4 @@ followed by the ASCII code value in hexadecimal (upper case - always 2 character
 
 ##  Contributeurs
 
-### [Kevin Conte](https://github.com/MrOmnes) && [Lucie Delannay]https://github.com/Secatricia)
+### [Kevin Comte](https://github.com/MrOmnes) && [Lucie Delannay](https://github.com/Secatricia)
