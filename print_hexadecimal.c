@@ -21,7 +21,7 @@ int print_hexadecimal(va_list args)
 	for (i = 0; num > 0; i++)
 	{
 		s[i] = num % 16;
-		if (s[i] < 10)
+		if (s[i] <= 9)
 			s[i] = 48 + (num % 16);
 		else
 			s[i] = 87 + (num % 16);
