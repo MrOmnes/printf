@@ -14,9 +14,9 @@ int main(void)
     unsigned int ui;
     /*void *addr;*/
 
-    printf("%x\n", INT_MAX);
-    _printf("%x\n", INT_MAX);
-    _printf("%X\n", INT_MAX);
+    printf("%u\n", INT_MAX);
+    _printf("%u\n", INT_MAX);
+    _printf("%u\n", INT_MAX);
     _printf("%S\n", "Best\nSchool");
     len = _printf("%r", "bonjour");
     _printf("len : %d", len);

@@ -9,6 +9,7 @@ int print_reverse(va_list args)
 {
 	char *str = va_arg(args, char *);
 	int c = 0;
+	int length = 0;
 
 	if (str)
 	{
@@ -18,7 +19,7 @@ int print_reverse(va_list args)
 	while (c >= 0 && str != NULL)
 	{
 		_putchar(str[c]);
-		c--;
+		c--, length++;
 	}
 
 	if (str == NULL)
@@ -29,9 +30,10 @@ int print_reverse(va_list args)
 		while (str[c])
 		{
 			_putchar(str[c]);
-			c++;
+			c++, length++;
+			return (length);
 		}
 	}
 
-	return (_strlen(str));
+	return (length);
 }
