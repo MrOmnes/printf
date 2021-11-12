@@ -123,14 +123,6 @@ followed by the ASCII code value in hexadecimal (upper case - always 2 character
 <li>r : prints the reversed string
 </pre></code>
 
-***
-### 15. The flood of print has turned reading into a process of gulping rather than savoring
-## Handle the following custom conversion specifier:
-<pre><code>
-<ul>
-<li>R: prints the rot13'ed string</li>
-</pre></code>
-
 ##  Contributeurs
 
 ### [Kevin Comte](https://github.com/MrOmnes) && [Lucie Delannay](https://github.com/Secatricia)

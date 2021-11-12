@@ -42,8 +42,6 @@ the ending ``0'' used to terminate the output of the strings) or a negative valu
 	S   Print ASCII string
 .TP
 	r   Prints the reverse string
-.TP
-	R   Prints the rot13'ed string
 
 .SH SEE ALSO
 printf(3)
